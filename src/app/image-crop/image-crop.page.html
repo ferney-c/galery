@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recortar Imagen</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="saveCroppedImage()">
+        GUARDAR
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="cropper-container">
+    <image-cropper
+      [imageBase64]="imageBase64"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="1/1"
+      format="png"
+      (imageLoaded)="imageLoaded()"
+      (loadImageFailed)="loadImageFailed()"
+      (imageCropped)="imageCropped($event)"
+      [onlyScaleDown]="false"
+      [hideResizeSquares]="false"
+      [alignImage]="'center'"
+    >
+    </image-cropper>
+  </div>
+</ion-content>

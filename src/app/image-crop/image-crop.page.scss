@@ -1,0 +1,63 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.cropper-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 100%;
+    object-fit: cover !important;
+    padding: 0;
+    margin: 0;
+    
+    image-cropper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        object-fit: cover !important;
+        padding: 0;
+        margin: 0;
+    }
+
+    ::ng-deep {
+
+        // Forzar el tamaño completo del contenedor del cropper
+        .cropper {
+            width: auto !important;
+            object-fit: cover !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        // Asegurar que el contenedor de la imagen ocupe todo el espacio
+        .cropperContainer {
+            width: auto !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        // Ajustar el área de recorte
+        .cropper-area {
+            width: auto !important;
+            height: 100% !important;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+// Asegurar que el contenido principal ocupe todo el espacio disponible
+:host ::ng-deep ion-content {
+    --padding-top: 0;
+    --padding-bottom: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+}

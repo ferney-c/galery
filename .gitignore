@@ -20,6 +20,7 @@ log.txt
 # Ionic
 /.ionic
 /www
+/android
 /platforms
 /plugins
 
@@ -36,6 +37,7 @@ yarn-error.log
 
 # IDEs and editors
 .idea/
+.vscode/
 .project
 .classpath
 .c9/
