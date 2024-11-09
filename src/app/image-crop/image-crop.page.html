@@ -1,14 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Recortar Imagen</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="saveCroppedImage()">
-        GUARDAR
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <div class="cropper-container">
     <image-cropper
@@ -22,7 +11,27 @@
       [onlyScaleDown]="false"
       [hideResizeSquares]="false"
       [alignImage]="'center'"
-    >
-    </image-cropper>
+    />
   </div>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar [color]="undefined">
+    <ion-button size="large" fill="clear" shape="round" slot="start" (click)="cancelCrop()">
+      <ion-icon
+        slot="icon-only"
+        size="large"
+        color="danger"
+        name="close-circle-outline"
+      ></ion-icon>
+    </ion-button>
+    <ion-button size="large" fill="clear" shape="round" slot="end" (click)="saveCroppedImage()" [disabled]="!imageBase64">
+      <ion-icon
+        slot="icon-only"
+        color="primary"
+        size="large"
+        name="checkmark-done-circle-outline"
+      ></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

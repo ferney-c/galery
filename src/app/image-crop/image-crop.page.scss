@@ -12,7 +12,6 @@
     justify-content: center;
     width: auto;
     height: 100%;
-    object-fit: cover !important;
     padding: 0;
     margin: 0;
     
@@ -20,7 +19,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        object-fit: cover !important;
         padding: 0;
         margin: 0;
     }
@@ -30,7 +28,6 @@
         // Forzar el tamaño completo del contenedor del cropper
         .cropper {
             width: auto !important;
-            object-fit: cover !important;
             margin: 0 !important;
             padding: 0 !important;
         }
@@ -39,7 +36,6 @@
         .cropperContainer {
             width: auto !important;
             height: 100% !important;
-            object-fit: cover !important;
             margin: 0 !important;
             padding: 0 !important;
         }
@@ -60,4 +56,26 @@
     --padding-bottom: 0;
     --padding-start: 0;
     --padding-end: 0;
+}
+
+ion-footer {
+    --background: transparent !important;
+
+    ion-toolbar {
+        --background: transparent !important;
+        --color: transparent !important;
+
+        --border-color: transparent !important;
+        --border-width: 0;
+
+        --padding-top: 0;
+        --padding-bottom: 0;
+        --padding-start: 0;
+        --padding-end: 0;
+
+        ion-button {
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+    }
 }
