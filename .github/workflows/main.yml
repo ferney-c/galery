@@ -9,16 +9,38 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: Create JSON payload for Slack
-      id: create-payload
+    - name: Create JSON payload2 for Slack
       run: |
-        echo '{"text": "
-        ✅ Prueba\n
-        📦 Repositorio: ${{ github.repository }}\n
-        🌿 Branch: Nada\n
-        👤 Autor: ${{ github.actor }}\n
-        🔗 [Workflow](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
-        "}' > payload-slack-content.json
+        echo '
+          {
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|[barberia-backend:prodiccion:actions-run]> new deploy by *${{ github.actor }}*\n\n"
+                }
+              },
+              {
+                "type": "rich_text",
+                "elements": [
+                  {
+                    "type": "rich_text_quote",
+                    "elements": [
+                      {
+                        "type": "text",
+                        "text": "Despliegue subsecuente iniciado",
+                        "style": {
+                          "bold": true
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ' > payload-slack-content.json
 
     - name: Send custom event details to a Slack workflow
       id: slack-notification
