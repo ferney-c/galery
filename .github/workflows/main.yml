@@ -1,0 +1,10 @@
+name: Prueba
+
+on: push
+
+jobs:
+  notification-slack:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
