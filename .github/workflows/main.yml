@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Create JSON payload2 for Slack
+    - name: Create JSON payload for Slack
       run: |
         echo '
           {
@@ -27,7 +27,7 @@ jobs:
                     "elements": [
                       {
                         "type": "text",
-                        "text": "Despliegue subsecuente iniciado, Prueba",
+                        "text": "Despliegue subsecuente iniciado, Prueba 2",
                         "style": {
                           "bold": true
                         }
@@ -41,7 +41,6 @@ jobs:
         ' > payload-slack-content.json
 
     - name: Send custom event details to a Slack workflow
-      id: slack-notification
       uses: slackapi/slack-github-action@v2.0.0
       with:
         payload-file-path: "./payload-slack-content.json"
