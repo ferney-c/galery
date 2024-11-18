@@ -13,7 +13,11 @@ jobs:
       uses: slackapi/slack-github-action@v2.0.0
       with:
         webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-        webhook-type: webhook-trigger
+        webhook-type: incoming-webhook
         payload: |
-          status: "${{ job.status }}"
-          option: "true"
+          text: "*GitHub Action build result*: ${{ job.status }}"
+          blocks:
+            - type: "section"
+              text:
+                type: "mrkdwn"
+                text: "GitHub Action build result: ${{ job.status }}"
