@@ -6,8 +6,6 @@ jobs:
   notification-slack:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
 
     - name: Create JSON payload2 for Slack
       run: |
@@ -29,7 +27,7 @@ jobs:
                     "elements": [
                       {
                         "type": "text",
-                        "text": "Despliegue subsecuente iniciado",
+                        "text": "Despliegue subsecuente iniciado, Prueba",
                         "style": {
                           "bold": true
                         }
