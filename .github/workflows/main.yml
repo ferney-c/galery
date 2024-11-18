@@ -12,7 +12,13 @@ jobs:
     - name: Create JSON payload for Slack
       id: create-payload
       run: |
-        echo '{"text": "✅ Prueba\n📦 Repositorio: ${{ github.repository }}\n🌿 Branch: Nada\n👤 Autor: ${{ github.actor }}\n🔗 Workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' > payload-slack-content.json
+        echo '{"text": "
+        ✅ Prueba\n
+        📦 Repositorio: ${{ github.repository }}\n
+        🌿 Branch: Nada\n
+        👤 Autor: ${{ github.actor }}\n
+        🔗 [Workflow](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+        "}' > payload-slack-content.json
 
     - name: Send custom event details to a Slack workflow
       id: slack-notification
