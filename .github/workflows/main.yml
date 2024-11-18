@@ -27,7 +27,7 @@ jobs:
                     "elements": [
                       {
                         "type": "text",
-                        "text": "Despliegue subsecuente iniciado, Prueba 2",
+                        "text": "✅ Despliegue subsecuente finalizado con éxito",
                         "style": {
                           "bold": true
                         }
