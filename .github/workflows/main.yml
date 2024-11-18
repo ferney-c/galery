@@ -9,15 +9,26 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
+    - name: Create JSON payload for Slack
+      id: create-payload
+      run: |
+        echo '{"text": "Hello, World!"}' > payload-slack-content.json
+
     - name: Send custom event details to a Slack workflow
+      id: slack-notification
       uses: slackapi/slack-github-action@v2.0.0
       with:
+        payload-file-path: "./payload-slack-content.json"
+        payload-templated: true
         webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-        webhook-type: incoming-webhook
-        payload: |
-          text: "*GitHub Action build result*: ${{ job.status }}"
-          blocks:
-            - type: "section"
-              text:
-                type: "mrkdwn"
-                text: "GitHub Action build result: ${{ job.status }}"
+        webhook-type: webhook-trigger
+      # with:
+      #   webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+      #   webhook-type: incoming-webhook
+      #   payload: |
+      #     text: "*GitHub Action build result*: ${{ job.status }}"
+      #     blocks:
+      #       - type: "section"
+      #         text:
+      #           type: "mrkdwn"
+      #           text: "GitHub Action build result: ${{ job.status }}"
